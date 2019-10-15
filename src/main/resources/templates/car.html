@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p th:text="${name}"> </p>
+
+<tr th:each="car:${cars}">
+    <td th:text="${car.getModel()}"></td><br>
+    <td th:text="${car.getMark()}"></td><br>
+    <p>==========================</p>
+</tr>
+
+
+
+<form th:action="@{/add}" th:object="${newCar}" method="post">
+    <p>Mark: <input type="text" th:field="*{mark}"></p>
+    <p>Model: <input type="text" th:field="*{model}"></p>
+    <p><input type="submit" value="add new car"></p>
+
+</form>
+</body>
+</html>
